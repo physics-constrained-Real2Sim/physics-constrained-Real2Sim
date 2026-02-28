@@ -1,16 +1,17 @@
-## Hi there 👋
+# physics-constrained-Real2Sim
 
-<!--
-**physics-constrained-Real2Sim/physics-constrained-Real2Sim** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## 📄 About This Repository
 
-Here are some ideas to get you started:
+This is the official repository for the paper:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+"Real-to-Sim for Highly Cluttered Environments via Physics-Consistent Inter-Object Reasoning"
+
+
+The project focuses on reconstructing **dynamically consistent 3D scenes** from a single RGB-D observation by explicitly modeling inter-object contact and physical constraints, enabling reliable simulation and contact-rich robotic interaction.
+
+## 🚧 Status: Code Release in Preparation  
+
+This repository is currently under active development.  
+---
+
+Code will be released within two weeks.
