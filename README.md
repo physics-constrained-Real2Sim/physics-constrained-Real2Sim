@@ -24,7 +24,7 @@ We have released our SAM3D+ICP initial guess and physics-constrained optimizatio
 
 
 ```
-https://github.com/physics-constrained-Real2Sim/physics-constrained-Real2Sim.git
+git clone https://github.com/physics-constrained-Real2Sim/physics-constrained-Real2Sim.git
 cd physics-constrained-Real2Sim
 ```
 
@@ -38,7 +38,7 @@ If you do not have access to such hardware, you may **skip the SAM3D stage** and
 
 ```
 cd physics-constrained-Real2Sim
-https://github.com/physics-constrained-Real2Sim/sam_3d_objects.git
+git clone https://github.com/physics-constrained-Real2Sim/sam_3d_objects.git
 cd sam_3d_objects
 ```
 
