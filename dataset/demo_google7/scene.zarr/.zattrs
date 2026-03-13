@@ -1,0 +1,25 @@
+{
+    "cam_position": [
+        0.8512877821922302,
+        -0.4914912283420563,
+        0.7382917404174805
+    ],
+    "cam_up_direction": [
+        0.0,
+        0.0,
+        1.0
+    ],
+    "config_yaml": "scene:\n  output_dir: \"./dataset\"               # \u8f93\u51fa\u76ee\u5f55\n  scene_dir: \"./dataset/google7\"                # \u573a\u666f\u540d\u79f0\n  out_zarr: \"./dataset/google7/scene.zarr\"   # \u8f93\u51fa\u5230\u4e00\u4e2a Zarr \u5bb9\u5668\uff08\u76ee\u5f55\u6216zip\u90fd\u884c\uff09\n  seed: 42\n  gui: false                               # true \u6253\u5f00 GUI\n\nphysics:\n  gravity: -9.81\n  time_step: 0.0041666667                  # 1/240\n  ground_friction: 1.0                     # \u2705 \u5730\u9762\u6469\u64e6\u7cfb\u6570\n\ncamera:\n  width: 1024\n  height: 720\n  fov_y_deg:  45.0\n  near: 0.01\n  far: 10.0\n  look_at:\n    target: [0.0, 0.0, 0.05]               # \u4ee5\u5730\u9762\u4e3a0\uff0c\u7565\u5fae\u62ac\u9ad8\u4ee5\u770b\u5230\u7269\u4f53\n    distance: 1.2\n    elev_deg: 35.0\n    azim_deg: -30.0\n\nobjects:  \n  list:\n    - obj_dir: \"google_scanned_objects/Threshold_Salad_Plate_Square_Rim_Porcelain/meshes/model.obj\" #    \u76d8\u5b50\n      mass: 1.5\n      friction_coefficient: 0.5\n      pose_offset: [0.05, 0.00, 0.0]\n      euler: [0, 0, 0]\n      scale: [3.0,3.0,3.0]\n\n    - obj_dir: \"google_scanned_objects/Threshold_Porcelain_Pitcher_White/meshes/model.obj\" # \u6c34\u58f6\n      mass: 0.5\n      friction_coefficient: 0.5\n      pose_offset: [0.05, -0.1, 0.1]\n      euler: [0, 0, 0]\n    - obj_dir: \"google_scanned_objects/Threshold_Porcelain_Serving_Bowl_Coupe_White/meshes/model.obj\" # \u7897\n      mass: 0.5\n      friction_coefficient: 0.5\n      pose_offset: [0.05, 0.1, 0.2]\n      euler: [0, 0, 0]\n\n    - obj_dir: \"google_scanned_objects/Threshold_Porcelain_Coffee_Mug_All_Over_Bead_White/meshes/model.obj\" # \u5496\u5561\u676f \n      mass: 0.5\n      friction_coefficient: 0.5\n      pose_offset: [0.05, 0.1, 0.25]\n      euler: [0, 0, 1.57]\n      size: [2.0,2.0,2.0]\n    - obj_dir: \"google_scanned_objects/Threshold_Porcelain_Teapot_White/meshes/model.obj\" # \u8336\u58f6 \n      mass: 0.5\n      friction_coefficient: 0.5\n      pose_offset: [0.05, 0.5, 0.25]\n      euler: [0, 0, 1.57]\n      scale: [2.0,2.0,2.0]\n\n  drop:\n    height_offset: 0.10                    # \u76f8\u5bf9\u5730\u9762 z=0 \u7684\u6389\u843d\u9ad8\u5ea6\n    random_xy: 0.00                        # \u521d\u59cb\u6c34\u5e73\u6270\u52a8\n  static_check:\n    lin_th: 0.001\n    ang_th: 0.001\n    frames: 100\n\nsampling:\n  completed_points_per_obj: 50000\n  store_partial_world: true\n  store_mesh_bytes: false                  # true \u65f6\u628a\u7f51\u683c\u5b57\u8282\u4e5f\u5d4c\u5165 zarr\n  mesh_bytes_limit_mb: 64                  # \u5d4c\u5165\u7f51\u683c\u7684\u4f53\u79ef\u4e0a\u9650\n\nzarr:\n  compressor: \"blosc\"                      # numcodecs.blosc + zstd\n  clevel: 5\n  shuffle: \"byte\"\n  chunk_xy: [360, 480]                     # \u56fe\u50cf\u7c7b\u6570\u636e\u5206\u5757\uff08H,W\uff09\n  chunk_points: 65536                      # \u70b9\u4e91\u7c7b\u6570\u636e\u5206\u5757\u884c\u6570\n",
+    "far": 10.0,
+    "fov_y_deg": 45.0,
+    "height": 720,
+    "near": 0.01,
+    "objects_count": 5,
+    "target_look_at": [
+        0.0,
+        0.0,
+        0.05000000074505806
+    ],
+    "version": "ycb-pybullet-ground-1.0",
+    "width": 1024
+}

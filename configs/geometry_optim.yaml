@@ -1,0 +1,12 @@
+## learning parameters
+lr_quaternion : 1e-4
+lr_pose : 1e-3
+iteration : 150
+lambda_xy : 0.8
+lambda_z  : 0.0
+
+## penetration & contact margin
+penetration_margin  : 2e-3 # safe margin, this will set a margin around objects.
+contact_margin      : 2e-3 # safe margin for contact detection, this will set a margin around objects
+penetration_weight  : 20
+contact_weight      : 2

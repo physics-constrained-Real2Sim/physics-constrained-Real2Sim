@@ -1,0 +1,33 @@
+name: diffsdfsim_cu102
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - pytorch=1.9.0
+  - torchvision=0.10.0=*cu*
+  - cudatoolkit=10.2
+  - matplotlib
+  - numpy
+  - tensorboard
+  - pyrender
+  - trimesh
+  - cvxpy<1.1
+  - scipy
+  - imageio
+  - plyfile
+  - scikit-image
+  - pytest
+  - pyhocon
+  - pyyaml
+  - pillow
+  - sacred
+  - cython<3
+  - setuptools
+  - pip
+  - pip:
+      - pygame
+      - py3ode
+      - pytorch3d @ git+https://github.com/facebookresearch/pytorch3d.git@v0.4.0
+      - ev-sdf-utils @ git+https://github.com/EmbodiedVision/ev-sdf-utils.git

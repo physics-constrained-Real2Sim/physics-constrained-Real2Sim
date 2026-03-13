@@ -1,0 +1,7 @@
+{
+    "bid": 3,
+    "collision_mesh": "google_scanned_objects/Threshold_Porcelain_Serving_Bowl_Coupe_White/meshes/model_shrink972_coacd.obj",
+    "friction": 0.5,
+    "mass": 0.5,
+    "render_mesh": "google_scanned_objects/Threshold_Porcelain_Serving_Bowl_Coupe_White/meshes/model.obj"
+}

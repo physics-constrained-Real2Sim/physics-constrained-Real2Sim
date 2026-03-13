@@ -1,0 +1,7 @@
+{
+    "bid": 5,
+    "collision_mesh": "google_scanned_objects/Threshold_Porcelain_Teapot_White/meshes/model_shrink977_coacd.obj",
+    "friction": 0.5,
+    "mass": 0.5,
+    "render_mesh": "google_scanned_objects/Threshold_Porcelain_Teapot_White/meshes/model.obj"
+}

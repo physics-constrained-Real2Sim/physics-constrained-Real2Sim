@@ -1,0 +1,25 @@
+diffsdfsim
+Copyright 2024 Max-Planck-Gesellschaft
+Licensed under the Apache License, Version 2.0 (see LICENSE)
+Code authors: Michael Strecke, michael.strecke@tuebingen.mpg.de, Joerg Stueckler, joerg.stueckler@tuebingen.mpg.de
+Embodied Vision Group, Max Planck Institute for Intelligent Systems
+
+--------------
+
+The directory lcp_physics is derived from https://github.com/locuslab/lcp-physics/tree/a85ecfe0fdc427ee016f3d1c2ddb0d0c0f98f21b/lcp_physics,
+licensed under the Apache License, Version 2.0 (see LICENSE).
+The following modifications were made to the code:
+
+- The code in lcp_physics/lcp was updated to work with more recent pytorch versions based on the qpth repository at
+  https://github.com/locuslab/qpth/tree/bc121d59802d43fc6cbd685959e9156030dc1baf, licensed under the Apache License,
+  Version 2.0 (see LICENSE). These updates were performed by Rama Krishna Kandukuri, rama.kandukuri@tuebingen.mpg.de,
+  Embodied Vision Group, Max Planck Institute for Intelligent Systems.
+- The file lcp_physics/physics/utils.py has an additional default parameter SOLVER=1 for working with the changes in
+  lcp_physics/lcp.
+- The file lcp_physics/physics/world.py was updated to include the time-of-contact differential.
+- The files lcp_physics/physics/{bodies.py,constraints.py} were updated to transfer pytorch tensors to CPU before
+  converting them to numpy arrays.
+
+---------------
+
+

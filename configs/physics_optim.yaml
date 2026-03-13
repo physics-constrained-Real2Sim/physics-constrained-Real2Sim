@@ -1,0 +1,22 @@
+# learning rates for different optimizers
+lr_quaternion  : 1e-4
+lr_pose_warmup : 2e-3
+lr_pose : 2e-3
+lr_com  : 5e-3
+lr_physics : 5e-2
+
+## voxelization SDF parameters
+voxel_resolution : 124
+
+## warmup parameters
+penetration_weight_warmup : 2.0
+contact_weight_warmup     : 0.0
+
+## DIFFSIM parameters
+penetration_weight : 5.0
+contact_weight     : 1.0
+lambda_xy_warmup : 1.0
+lambda_z_warmup  : 0.0
+lambda_xy : 0.6
+lambda_z  : 0.0
+rollout_time : 0.25

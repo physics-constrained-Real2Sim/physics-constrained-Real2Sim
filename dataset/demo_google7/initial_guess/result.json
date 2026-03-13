@@ -1,0 +1,212 @@
+[
+  {
+    "obj_ID": 0,
+    "type": "ground",
+    "mesh_path": "/home/iadc/physics-constrained-Real2Sim/ground.obj",
+    "convex_mesh_path": null,
+    "transformation_accumulation": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "mass_result": null,
+    "friction_result": null,
+    "com_result": null
+  },
+  {
+    "obj_ID": 1,
+    "type": "object",
+    "mesh_path": "/home/iadc/physics-constrained-Real2Sim/dataset/demo_google7/ICP_refinement/obj1/obj1.obj",
+    "convex_mesh_path": null,
+    "transformation_accumulation": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "mass_result": null,
+    "friction_result": null,
+    "com_result": null
+  },
+  {
+    "obj_ID": 2,
+    "type": "object",
+    "mesh_path": "/home/iadc/physics-constrained-Real2Sim/dataset/demo_google7/ICP_refinement/obj2/obj2.obj",
+    "convex_mesh_path": null,
+    "transformation_accumulation": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "mass_result": null,
+    "friction_result": null,
+    "com_result": null
+  },
+  {
+    "obj_ID": 3,
+    "type": "object",
+    "mesh_path": "/home/iadc/physics-constrained-Real2Sim/dataset/demo_google7/ICP_refinement/obj3/obj3.obj",
+    "convex_mesh_path": null,
+    "transformation_accumulation": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "mass_result": null,
+    "friction_result": null,
+    "com_result": null
+  },
+  {
+    "obj_ID": 4,
+    "type": "object",
+    "mesh_path": "/home/iadc/physics-constrained-Real2Sim/dataset/demo_google7/ICP_refinement/obj4/obj4.obj",
+    "convex_mesh_path": null,
+    "transformation_accumulation": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "mass_result": null,
+    "friction_result": null,
+    "com_result": null
+  },
+  {
+    "obj_ID": 5,
+    "type": "object",
+    "mesh_path": "/home/iadc/physics-constrained-Real2Sim/dataset/demo_google7/ICP_refinement/obj5/obj5.obj",
+    "convex_mesh_path": null,
+    "transformation_accumulation": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "mass_result": null,
+    "friction_result": null,
+    "com_result": null
+  }
+]

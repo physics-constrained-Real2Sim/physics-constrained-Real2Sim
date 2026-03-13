@@ -1,0 +1,7 @@
+{
+    "bid": 4,
+    "collision_mesh": "/home/iadc/phy_recon/data_collection/ycb/meshes/006_mustard_bottle/google_16k/textured_shrink973_coacd.obj",
+    "friction": 3.0,
+    "mass": 0.2,
+    "render_mesh": "/home/iadc/phy_recon/data_collection/ycb/meshes/006_mustard_bottle/google_16k/textured.obj"
+}
