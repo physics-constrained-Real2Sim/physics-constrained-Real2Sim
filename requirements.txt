@@ -1,0 +1,28 @@
+# pytorch==2.1.0
+# torchvision
+# pytorch-cuda==12.1
+# pytorch3d
+matplotlib
+numpy
+pyrender
+trimesh
+cvxpy
+scipy
+imageio
+plyfile
+scikit-image
+pytest
+pyhocon
+pyyaml
+pillow
+sacred
+pygame
+cython<3
+setuptools
+open3d
+zarr
+opencv-python
+icecream
+coacd
+#py3ode
+# ev-sdf-utils @ git+https://github.com/EmbodiedVision/ev-sdf-utils.git
