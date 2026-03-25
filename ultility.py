@@ -129,8 +129,8 @@ def registration_mesh_to_pointcloud(reconstructed_mesh_path, GT_point_cloud, ite
     o3d.utility.random.seed(0)
     ## Scale guess with bounding box
     s_guess = robust_bbox_scale(source_point_cloud, GT_point_cloud,
-                            p=0.02,                # 2%~5% 常用
-                            use_volume_cuberoot=False,  # True 更均衡，False 更直观
+                            p=0.02,
+                            use_volume_cuberoot=False,
                             do_denoise=True,
                             do_pca=True)
 
@@ -232,17 +232,16 @@ def denoise_and_decimate(pts, nb_neighbors=20, std_ratio=2.0, min_cluster=50):
     return np.asarray(pcd.points)
 
 def pca_align(pts):
-    """将点云旋转到其 PCA 主轴坐标系，返回对齐后的点及旋转矩阵"""
     c = pts.mean(axis=0)
     X = pts - c
-    # PCA：对协方差做 SVD
+    # PCA
     U, S, Vt = np.linalg.svd(X, full_matrices=False)
-    R = Vt  # 行为主轴方向
+    R = Vt  
     Xp = X @ R.T
     return Xp + c, R
 
 def percentile_aabb_diag(pts, p=0.02, use_volume_cuberoot=False):
-    """分位数 AABB 对角线或体积^(1/3) 作为尺度代表"""
+    """Quantiles of the AABB diagonal or volume^(1/3) as scale representatives."""
     qmin = np.quantile(pts, p, axis=0)
     qmax = np.quantile(pts, 1-p, axis=0)
     ext = np.maximum(qmax - qmin, 1e-12)
@@ -253,7 +252,7 @@ def percentile_aabb_diag(pts, p=0.02, use_volume_cuberoot=False):
 
 def robust_bbox_scale(src_pts, tgt_pts, p=0.02, use_volume_cuberoot=False,
                       do_denoise=True, do_pca=True):
-    """鲁棒 BB 比值估计尺度：可选去噪+PCA+分位数 AABB"""
+    """Robust BB scale ratio estimation: optional denoising + PCA + quantile AABB"""
     S = src_pts.copy(); T = tgt_pts.copy()
     if do_denoise:
         S = denoise_and_decimate(S)
@@ -369,18 +368,13 @@ def visualize_point_cloud(data):
 def visualize_point_cloud_offscreen(data, out_path,
                                      width=800, height=600,
                                      lookat=None, up=None, front=None):
-    # 从 tensor 转 numpy
     if isinstance(data, torch.Tensor):
         data = data.cpu().numpy()
-    # shape 检查
     if data.ndim != 2 or data.shape[1] not in (3, 6):
         raise ValueError("data must be N×3 or N×6 array/tensor")
-    # 空点云直接跳过
     if data.shape[0] == 0:
-        print(f"[OFFSCREEN] 空点云，跳过渲染：{out_path}")
+        print(f"[OFFSCREEN] No pcd points, skip {out_path}")
         return
-
-    # 构造点云
     pcd = o3d.geometry.PointCloud()
     pcd.points = o3d.utility.Vector3dVector(data[:, :3])
     if data.shape[1] == 6:
@@ -389,91 +383,36 @@ def visualize_point_cloud_offscreen(data, out_path,
             cols /= 255.0
         pcd.colors = o3d.utility.Vector3dVector(cols)
 
-    # 创建离屏渲染器
     vis = o3d.visualization.Visualizer()
-    vis.create_window(width=width, height=height, visible=False)  # 关键：设置visible=False
+    vis.create_window(width=width, height=height, visible=False) 
     
-    # 添加点云
     vis.add_geometry(pcd)
-    
-    # 设置相机参数
     render_option = vis.get_render_option()
-    render_option.point_size = 2.0  # 可根据需要调整点大小
+    render_option.point_size = 2.0  
     
     view_ctl = vis.get_view_control()
     bbox = pcd.get_axis_aligned_bounding_box()
     center = bbox.get_center()
     
-    # 自动计算视角（如果未提供参数）
     if lookat is None:
         lookat = center
     if up is None:
-        up = [0, 0, 1]  # 默认Z轴向上
+        up = [0, 0, 1]  
     if front is None:
-        front = [0, 1, 0]  # 默认朝向Y轴正方向
+        front = [0, 1, 0]  
     
-    # 设置相机位置
     view_ctl.set_lookat(lookat)
     view_ctl.set_up(up)
     view_ctl.set_front(front)
+    view_ctl.set_zoom(0.7) 
     
-    # 自动调整视角距离
-    view_ctl.set_zoom(0.7)  # 调整缩放系数使点云充满画面
-    
-    # 渲染并保存
     vis.update_geometry(pcd)
     vis.poll_events()
     vis.update_renderer()
     vis.capture_screen_image(out_path)
     
-    # 清理资源
     vis.destroy_window()
-    print(f"[OFFSCREEN] 已保存：{out_path}")
-
-# def visualize_point_cloud_offscreen(data, out_path,
-#                                      width=800, height=600,
-#                                      lookat=None, up=None, front=None):
-#     # 从 tensor 转 numpy
-#     if isinstance(data, torch.Tensor):
-#         data = data.cpu().numpy()
-#     # shape 检查
-#     if data.ndim != 2 or data.shape[1] not in (3, 6):
-#         raise ValueError("data must be N×3 or N×6 array/tensor")
-#     # 空点云直接跳过
-#     if data.shape[0] == 0:
-#         print(f"[OFFSCREEN] 空点云，跳过渲染：{out_path}")
-#         return
-
-#     # 构造点云
-#     pcd = o3d.geometry.PointCloud()
-#     pcd.points = o3d.utility.Vector3dVector(data[:, :3])
-#     if data.shape[1] == 6:
-#         cols = data[:, 3:6].astype(np.float64)
-#         if cols.max() > 1.0:
-#             cols /= 255.0
-#         pcd.colors = o3d.utility.Vector3dVector(cols)
-
-#     # 初始化渲染器
-#     renderer = OffscreenRenderer(width, height)  # :contentReference[oaicite:0]{index=0}
-
-#     # ——关键改动：使用 Material 而不是 MaterialRecord——
-#     mat = Material()                            # :contentReference[oaicite:1]{index=1}
-#     renderer.scene.add_geometry("pcd", pcd, mat)
-
-#     # 相机设置
-#     bbox = pcd.get_axis_aligned_bounding_box()
-#     center = bbox.get_center()
-#     if lookat is None or up is None or front is None:
-#         renderer.setup_camera(60.0, bbox, center)
-#     else:
-#         renderer.scene.camera.look_at(lookat, center, up)
-
-#     # 渲染并保存
-#     img = renderer.render_to_image()
-#     o3d.io.write_image(out_path, img)
-#     renderer.scene.clear_geometry()
-#     renderer.release()
-#     print(f"[OFFSCREEN] 已保存：{out_path}")
+    print(f"[OFFSCREEN] Saved {out_path}")
 
 
 def preprocess_point_cloud(pcd, voxel_size):
@@ -624,15 +563,11 @@ def save_mesh(mesh_result, filename):
     mesh.export(filename)
 
 def convert_visible_mask(visible_mask, obj_id):
-    # visible_mask: HxW, 值为 {0,1,2,3...}
-    # obj_id["bid"]: 目标物体 ID
-
     mask = (visible_mask == obj_id)
 
     h, w = visible_mask.shape
-    out = np.ones((h, w, 3), dtype=np.uint8) * 255  # 默认背景白色
+    out = np.ones((h, w, 3), dtype=np.uint8) * 255  
 
-    # 可见区域 -> 灰色
     out[mask] = [188, 188, 188]
 
     return out
