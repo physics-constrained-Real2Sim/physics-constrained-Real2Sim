@@ -4,14 +4,24 @@
 
 This is the official repository for the paper:
 
-"Real-to-Sim for Highly Cluttered Environments via Physics-Consistent Inter-Object Reasoning"
+Real-to-Sim for Highly Cluttered Environments via Physics-Consistent Inter-Object Reasoning
 
-[![arXiv](https://img.shields.io/badge/arXiv-2602.12633-b31b1b.svg)](https://arxiv.org/abs/2602.12633)
-[![Project Page](https://img.shields.io/badge/Project-Website-blue)](https://physics-constrained-real2sim.github.io/)
+[Tianyi Xiang](https://tianyi20.github.io/)<sup>1</sup>, 
+[Jiahang Cao](https://sagecao1125.github.io/)<sup>2</sup>, 
+Sikai Guo<sup>1</sup>, 
+[Guoyang Zhao](https://guoyangzhao.github.io/)<sup>1</sup>, 
+[Andrew F. Luo](https://andrewluo.net/)<sup>2</sup>, 
+[Jun Ma](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/MA-Jun/eejma)<sup>1</sup>
+
+<sup>1</sup> Hong Kong University of Science and Technology (Guangzhou)  
+<sup>2</sup> The University of Hong Kong
+
+**Accepted for publication in IEEE Robotics and Automation Letters (RA-L).**
+
+[[arXiv]](https://arxiv.org/abs/2602.12633) [[Project Page]](https://physics-constrained-real2sim.github.io/) [[Code]](https://github.com/physics-constrained-Real2Sim/physics-constrained-Real2Sim)
 
 
-📄 **Paper:** https://arxiv.org/abs/2602.12633  
-🌐 **Project Page:** https://physics-constrained-real2sim.github.io/
+
 
 
 The project focuses on reconstructing **dynamically consistent 3D scenes** from a single RGB-D observation by explicitly modeling inter-object contact and physical constraints, enabling reliable simulation and contact-rich robotic interaction.
