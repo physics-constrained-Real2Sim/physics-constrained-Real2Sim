@@ -21,16 +21,9 @@ Sikai Guo<sup>1</sup>,
 [[arXiv]](https://arxiv.org/abs/2602.12633) [[Project Page]](https://physics-constrained-real2sim.github.io/) [[Code]](https://github.com/physics-constrained-Real2Sim/physics-constrained-Real2Sim)
 
 
-
-
-
 The project focuses on reconstructing **dynamically consistent 3D scenes** from a single RGB-D observation by explicitly modeling inter-object contact and physical constraints, enabling reliable simulation and contact-rich robotic interaction.
 
-## 🚧 Status: Optimization Code Release
-
-This repository is currently under active development.  
-
-We have released our SAM3D+ICP initial guess and physics-constrained optimization. Evaluation codes realease is in preparation. 
+## Status: Complete Code Release
 
 
 ```
@@ -221,7 +214,8 @@ We enhance the pose prediction of SAM3D by ICP (Iterative Closest Point) registr
 #### 2. Run physics-constrained optimization
 
 ```
-python main.py --dataset demo_google7 --debug --visualize # turn off visualize to speed up
+python main.py --dataset demo_google7 --debug # turn off visualize to speed up
+python main.py --dataset demo_google7 --debug --visualize # enable visualize 
 ```
 
 
@@ -237,7 +231,21 @@ Note that enabling visualization may increase computational cost due to renderin
 
 ### Evaluation scripts
 
-Although we evaluate our scene optimization on `pybullet` simulator, it can be smoothly transfer to any general simulators. The meta result is saved at `physics_optim/result.json`. Evaluation codes is released in preparation.
+Although we evaluate our scene optimization on `pybullet` simulator, it can be smoothly transfer to any general simulators. The meta result is saved at `physics_optim/result.json`. 
+
+Evaluation requires [COACD](https://github.com/SarahWeiii/CoACD) and [pybullet](https://github.com/bulletphysics/bullet3).
+
+```sh
+pip install coacd
+pip3 install pybullet --upgrade --user
+```
+
+Evalute `physics_optim` result of `demo_ycb5` and visualize rollout video. 
+
+```sh
+python evaluation.py --dataset demo_ycb5 --result physics_optim --visualize
+```
+
 
 ### Trouble shootingt
 
